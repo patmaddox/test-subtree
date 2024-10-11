@@ -1,0 +1,26 @@
+--- CMakeLists.txt.orig	2023-02-07 17:22:46 UTC
++++ CMakeLists.txt
+@@ -9,7 +9,7 @@ project(vcflib)
+ cmake_minimum_required(VERSION 3.16)
+ project(vcflib)
+ 
+-set(CMAKE_CXX_STANDARD 17)
++set(CMAKE_CXX_STANDARD 14)
+ 
+ include(ExternalProject)
+ include(FeatureSummary)
+@@ -69,7 +69,7 @@ if (${CMAKE_BUILD_TYPE} MATCHES Release)
+ endif()
+ 
+ if (${CMAKE_BUILD_TYPE} MATCHES Release)
+-  set(EXTRA_FLAGS "-march=native -D_FILE_OFFSET_BITS=64")
++  set(EXTRA_FLAGS "-D_FILE_OFFSET_BITS=64")
+   # set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG") # reset CXX_FLAGS to replace -O3 with -Ofast
+ endif()
+ 
+@@ -570,4 +570,4 @@ install(FILES ${INCLUDES} DESTINATION include)
+ 
+ install(FILES ${INCLUDES} DESTINATION include)
+ 
+-install(DIRECTORY ${CMAKE_SOURCE_DIR}/man/ DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
++install(DIRECTORY ${CMAKE_SOURCE_DIR}/man/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)

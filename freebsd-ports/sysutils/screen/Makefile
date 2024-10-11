@@ -1,0 +1,6 @@
+VERSIONS=		49
+SCREEN_VERSION?=	49
+
+MASTERDIR=		${.CURDIR}/../screen${SCREEN_VERSION}
+
+.include "${MASTERDIR}/Makefile"

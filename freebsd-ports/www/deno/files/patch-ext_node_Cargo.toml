@@ -1,0 +1,10 @@
+--- ext/node/Cargo.toml.orig	2024-08-23 11:15:01 UTC
++++ ext/node/Cargo.toml
+@@ -91,6 +91,7 @@ stable_deref_trait = "1.2.0"
+ sm3 = "0.4.2"
+ spki.workspace = true
+ stable_deref_trait = "1.2.0"
++sysinfo = "0.31.2"
+ thiserror.workspace = true
+ tokio.workspace = true
+ url.workspace = true

@@ -1,0 +1,233 @@
+PORTNAME=	numbat
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.13.0
+PORTREVISION=	2
+CATEGORIES=	lang devel science
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Statically typed programming language for scientific computations
+WWW=		https://numbat.dev
+
+LICENSE=	APACHE20 MIT
+LICENSE_COMB=	dual
+LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
+LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	sharkdp
+
+CARGO_CRATES=	aho-corasick-1.1.3 \
+		anes-0.1.6 \
+		anstream-0.6.14 \
+		anstyle-1.0.7 \
+		anstyle-parse-0.2.4 \
+		anstyle-query-1.1.0 \
+		anstyle-wincon-3.0.3 \
+		anyhow-1.0.86 \
+		approx-0.5.1 \
+		arrayvec-0.7.4 \
+		assert_cmd-2.0.14 \
+		attohttpc-0.27.0 \
+		autocfg-1.3.0 \
+		bitflags-2.6.0 \
+		block-buffer-0.10.4 \
+		bstr-1.9.1 \
+		bumpalo-3.16.0 \
+		bytes-1.6.0 \
+		cast-0.3.0 \
+		cc-1.0.104 \
+		cfg-if-1.0.0 \
+		ciborium-0.2.2 \
+		ciborium-io-0.2.2 \
+		ciborium-ll-0.2.2 \
+		clap-4.5.8 \
+		clap_builder-4.5.8 \
+		clap_derive-4.5.8 \
+		clap_lex-0.7.1 \
+		clipboard-win-5.3.1 \
+		codespan-reporting-0.11.1 \
+		colorchoice-1.0.1 \
+		colored-2.1.0 \
+		console-0.15.8 \
+		cpufeatures-0.2.12 \
+		criterion-0.5.1 \
+		criterion-plot-0.5.0 \
+		crossbeam-deque-0.8.5 \
+		crossbeam-epoch-0.9.18 \
+		crossbeam-utils-0.8.20 \
+		crunchy-0.2.2 \
+		crypto-common-0.1.6 \
+		difflib-0.4.0 \
+		digest-0.10.7 \
+		dirs-5.0.1 \
+		dirs-sys-0.4.1 \
+		doc-comment-0.3.3 \
+		either-1.13.0 \
+		encode_unicode-0.3.6 \
+		endian-type-0.1.2 \
+		equivalent-1.0.1 \
+		errno-0.3.9 \
+		error-code-3.2.0 \
+		fd-lock-4.0.2 \
+		float-cmp-0.9.0 \
+		fnv-1.0.7 \
+		form_urlencoded-1.2.1 \
+		generic-array-0.14.7 \
+		getrandom-0.2.15 \
+		glob-0.3.1 \
+		half-2.4.1 \
+		hashbrown-0.14.5 \
+		heck-0.4.1 \
+		heck-0.5.0 \
+		hermit-abi-0.3.9 \
+		home-0.5.9 \
+		html-escape-0.2.13 \
+		http-1.1.0 \
+		idna-0.5.0 \
+		indexmap-2.2.6 \
+		insta-1.39.0 \
+		is-terminal-0.4.12 \
+		is_terminal_polyfill-1.70.0 \
+		itertools-0.10.5 \
+		itertools-0.12.1 \
+		itoa-1.0.11 \
+		jiff-0.1.3 \
+		jiff-tzdb-0.1.0 \
+		jiff-tzdb-platform-0.1.0 \
+		js-sys-0.3.69 \
+		lazy_static-1.5.0 \
+		libc-0.2.155 \
+		libredox-0.1.3 \
+		linked-hash-map-0.5.6 \
+		linux-raw-sys-0.4.14 \
+		log-0.4.22 \
+		memchr-2.7.4 \
+		mendeleev-0.8.1 \
+		nibble_vec-0.1.0 \
+		nix-0.27.1 \
+		normalize-line-endings-0.3.0 \
+		num-bigint-0.4.6 \
+		num-format-0.4.4 \
+		num-integer-0.1.46 \
+		num-rational-0.4.2 \
+		num-traits-0.2.19 \
+		once_cell-1.19.0 \
+		oorandom-11.1.3 \
+		option-ext-0.2.0 \
+		percent-encoding-2.3.1 \
+		plotters-0.3.6 \
+		plotters-backend-0.3.6 \
+		plotters-svg-0.3.6 \
+		ppv-lite86-0.2.17 \
+		predicates-3.1.0 \
+		predicates-core-1.0.6 \
+		predicates-tree-1.0.9 \
+		pretty_dtoa-0.3.0 \
+		proc-macro2-1.0.86 \
+		quick-xml-0.31.0 \
+		quote-1.0.36 \
+		radix_trie-0.2.1 \
+		rand-0.8.5 \
+		rand_chacha-0.3.1 \
+		rand_core-0.6.4 \
+		rayon-1.10.0 \
+		rayon-core-1.12.1 \
+		redox_users-0.4.5 \
+		regex-1.10.5 \
+		regex-automata-0.4.7 \
+		regex-syntax-0.8.4 \
+		ring-0.17.8 \
+		rust-embed-8.4.0 \
+		rust-embed-impl-8.4.0 \
+		rust-embed-utils-8.4.0 \
+		rustix-0.38.34 \
+		rustls-0.22.4 \
+		rustls-pki-types-1.7.0 \
+		rustls-webpki-0.102.4 \
+		rustyline-13.0.0 \
+		rustyline-derive-0.10.0 \
+		ryu-1.0.18 \
+		ryu_floating_decimal-0.1.0 \
+		same-file-1.0.6 \
+		serde-1.0.203 \
+		serde_derive-1.0.203 \
+		serde_json-1.0.120 \
+		serde_spanned-0.6.6 \
+		sha2-0.10.8 \
+		shellexpand-3.1.0 \
+		similar-2.5.0 \
+		smallvec-1.13.2 \
+		spin-0.9.8 \
+		strfmt-0.2.4 \
+		strsim-0.11.1 \
+		subtle-2.6.1 \
+		syn-2.0.68 \
+		termcolor-1.4.1 \
+		terminal_size-0.3.0 \
+		termtree-0.4.1 \
+		thiserror-1.0.61 \
+		thiserror-impl-1.0.61 \
+		tinytemplate-1.2.1 \
+		tinyvec-1.6.1 \
+		tinyvec_macros-0.1.1 \
+		toml-0.8.14 \
+		toml_datetime-0.6.6 \
+		toml_edit-0.22.14 \
+		typenum-1.17.0 \
+		unicode-bidi-0.3.15 \
+		unicode-ident-1.0.12 \
+		unicode-normalization-0.1.23 \
+		unicode-segmentation-1.11.0 \
+		unicode-width-0.1.13 \
+		untrusted-0.9.0 \
+		url-2.5.2 \
+		utf8-width-0.1.7 \
+		utf8parse-0.2.2 \
+		version_check-0.9.4 \
+		wait-timeout-0.2.0 \
+		walkdir-2.5.0 \
+		wasi-0.11.0+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.92 \
+		wasm-bindgen-backend-0.2.92 \
+		wasm-bindgen-macro-0.2.92 \
+		wasm-bindgen-macro-support-0.2.92 \
+		wasm-bindgen-shared-0.2.92 \
+		web-sys-0.3.69 \
+		webpki-roots-0.26.3 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.8 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-sys-0.48.0 \
+		windows-sys-0.52.0 \
+		windows-targets-0.48.5 \
+		windows-targets-0.52.5 \
+		windows_aarch64_gnullvm-0.48.5 \
+		windows_aarch64_gnullvm-0.52.5 \
+		windows_aarch64_msvc-0.48.5 \
+		windows_aarch64_msvc-0.52.5 \
+		windows_i686_gnu-0.48.5 \
+		windows_i686_gnu-0.52.5 \
+		windows_i686_gnullvm-0.52.5 \
+		windows_i686_msvc-0.48.5 \
+		windows_i686_msvc-0.52.5 \
+		windows_x86_64_gnu-0.48.5 \
+		windows_x86_64_gnu-0.52.5 \
+		windows_x86_64_gnullvm-0.48.5 \
+		windows_x86_64_gnullvm-0.52.5 \
+		windows_x86_64_msvc-0.48.5 \
+		windows_x86_64_msvc-0.52.5 \
+		winnow-0.6.13 \
+		zeroize-1.8.1
+
+PLIST_FILES=	bin/${PORTNAME}
+
+do-install:
+	# workaround for error: found a virtual manifest at `xx` instead of a package manifest
+	${INSTALL_PROGRAM} \
+		${WRKDIR}/target/*/release/${PORTNAME} \
+		${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+
+.include <bsd.port.mk>

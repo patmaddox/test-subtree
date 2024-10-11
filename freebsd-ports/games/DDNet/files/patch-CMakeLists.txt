@@ -1,0 +1,16 @@
+--- CMakeLists.txt.orig	2024-09-02 21:39:42 UTC
++++ CMakeLists.txt
+@@ -948,13 +948,6 @@ if(NOT CMAKE_OSX_ARCHITECTURES)
+     )
+     list(APPEND RUST_OUTPUTS "${PROJECT_BINARY_DIR}/${CARGO_BUILD_DIR}/${LIBRARY_NAME}")
+   endforeach()
+-  add_custom_command(
+-    OUTPUT ${RUST_OUTPUTS}
+-    COMMAND ${CARGO_BUILD}
+-    WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+-    USES_TERMINAL
+-    DEPENDS ${RUST_SRC}
+-  )
+ else()
+   foreach(rust_target ${RUST_TARGETS})
+     set(LIBRARY_NAME "${CMAKE_STATIC_LIBRARY_PREFIX}ddnet_${rust_target}${CMAKE_STATIC_LIBRARY_SUFFIX}")

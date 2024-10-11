@@ -1,0 +1,38 @@
+--- CMakeLists.txt.orig	2024-03-26 18:49:53 UTC
++++ CMakeLists.txt
+@@ -97,7 +97,7 @@ if ((${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU") AND
+ endif()
+ 
+ #### Set C++ standard level
+-set(CMAKE_CXX_STANDARD 14)
++set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ 
+@@ -130,7 +130,7 @@ endif()
+ ### Process subdirectories
+ ###
+ add_subdirectory(src)
+-add_subdirectory(examples)
++#add_subdirectory(examples)
+ add_subdirectory(bindings)
+ 
+ ###
+@@ -188,6 +188,8 @@ if (ENABLE_LIB_DOCS AND CMAKE_VERSION VERSION_GREATER 
+     set(DOXYGEN_INTERACTIVE_SVG YES)
+     set(DOXYGEN_DOT_TRANSPARENT YES)
+ 
++    set(DOXYGEN_DOT_GRAPH_MAX_NODES "100")
++
+     doxygen_add_docs(${PROJECT_NAME}-doc
+       ${PROJECT_SOURCE_DIR}/src
+       ${PROJECT_SOURCE_DIR}/doc
+@@ -208,7 +210,7 @@ if (TARGET ${PROJECT_NAME}-doc)
+     OPTIONAL )    # No error if the docs aren't found
+ 
+   if(NOT TARGET doc)
+-    add_custom_target(doc)
++    add_custom_target(doc ALL)
+   endif()
+   if(TARGET doc)
+     add_dependencies(doc ${PROJECT_NAME}-doc)

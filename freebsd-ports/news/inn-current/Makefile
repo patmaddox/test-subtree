@@ -1,0 +1,24 @@
+PORTNAME=		inn-current
+PORTVERSION=		${SNAPSHOT}
+PORTREVISION=		0
+MASTER_SITE_SUBDIR=	inn/snapshots
+DISTNAME=		inn-${BRANCH}-${SNAPSHOT}
+
+BRANCH=		2.8
+SNAPSHOT=	20241006
+
+CONFLICTS=	inn-2.[0-9]*
+
+DISTINFO_FILE=	${.CURDIR}/distinfo
+FILESDIR=	${.CURDIR}/../inn/files
+PATCHDIR=	${.CURDIR}/../inn/files
+PLIST=		${.CURDIR}/pkg-plist
+WRKSRC=		${WRKDIR}/${DISTNAME}
+
+CPE_PRODUCT=	inn
+
+INNLIB_LONG=		9.0.1
+LIBVER_LONG=		3.0.8
+LIBSTORAGEVER_LONG=	3.1.2
+
+.include "${.CURDIR}/../inn/Makefile"

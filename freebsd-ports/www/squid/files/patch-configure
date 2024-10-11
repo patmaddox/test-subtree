@@ -1,0 +1,30 @@
+--- configure.orig	2024-03-04 05:50:28 UTC
++++ configure
+@@ -43985,7 +43985,10 @@ _ACEOF
+ 
+ else $as_nop
+ 
+-  BUILD_HELPER=""
++# XXX: On FreeBSD we have to do this to make NIS work
++# until https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=188247
++# is resolved.
++  BUILD_HELPER="NIS"
+ 
+ fi
+ 
+@@ -50834,6 +50837,7 @@ fi
+ 
+ ac_fn_cxx_check_type "$LINENO" "cpu_set_t" "ac_cv_type_cpu_set_t" "
+ #if HAVE_SCHED_H
++#define _WITH_CPU_SET_T
+ #include <sched.h>
+ #endif
+ 
+@@ -54020,6 +54024,7 @@ else $as_nop
+ #       include <sys/ioccom.h>
+ #       include <netinet/in.h>
+ #undef minor_t
++#       include <net/if.h>     /* IFNAMSIZ */
+ #       include <netinet/ip_compat.h>
+ #       include <netinet/ip_fil.h>
+ #       include <netinet/ip_nat.h>

@@ -1,0 +1,24 @@
+Drop unused dependencies (kf6-kwayland isn't packaged, anyway)
+
+--- CMakeLists.txt.orig	2024-02-27 13:20:11 UTC
++++ CMakeLists.txt
+@@ -35,19 +35,6 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED
+     Test
+ )
+ 
+-find_package(KF6 ${KF6_MIN_VERSION} COMPONENTS
+-  CoreAddons
+-  Wayland
+-)
+-set_package_properties(KF6CoreAddons PROPERTIES
+-  TYPE REQUIRED
+-  PURPOSE "For loading Wayland backend plugins"
+-)
+-set_package_properties(KF6Wayland PROPERTIES
+-  TYPE OPTIONAL
+-  PURPOSE "Required for KWin/KWayland backend"
+-)
+-
+ find_package(Wrapland ${PROJECT_VERSION} CONFIG)
+ set_package_properties(Wrapland PROPERTIES
+   TYPE OPTIONAL
