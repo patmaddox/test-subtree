@@ -1,0 +1,16 @@
+--- sys/msdk/meson.build.orig	2024-08-21 11:25:15 UTC
++++ sys/msdk/meson.build
+@@ -202,7 +202,12 @@ if msdk_deps_found
+     msdk_sources,
+     c_args : gst_plugins_bad_args + extra_args + onevpl_extra_args,
+     include_directories : [configinc, mfx_inc],
+-    dependencies : [gstbase_dep, gstvideo_dep, gstpbutils_dep, gstallocators_dep, gstcodecparsers_dep, mfx_dep, msdk_deps],
++    dependencies : [gstbase_dep,
++      dependency('gstreamer-video-1.0', required : true),
++      dependency('gstreamer-pbutils-1.0', required : true),
++      dependency('gstreamer-allocators-1.0', required : true),
++      dependency('gstreamer-codecparsers-1.0', required : true),
++      mfx_dep, msdk_deps],
+     install : true,
+     install_dir : plugins_install_dir,
+   )

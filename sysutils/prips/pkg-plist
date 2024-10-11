@@ -1,0 +1,3 @@
+bin/prips
+share/man/man1/prips.1.gz
+%%PORTDOCS%%%%DOCSDIR%%/README

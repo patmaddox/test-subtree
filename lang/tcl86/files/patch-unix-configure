@@ -1,0 +1,13 @@
+--- unix/configure.orig	2024-09-06 16:02:44.000000000 +0000
++++ unix/configure	2024-09-09 06:50:30.736361000 +0000
+@@ -6364,6 +6364,10 @@
+ 
+ 	    case $system in
+ 	    DragonFly-*|FreeBSD-*)
++		SHLIB_LD_LIBS="${SHLIB_LD_LIBS} -Wl,-soname,\$@"
++		UNSHARED_LIB_SUFFIX='${TCL_TRIM_DOTS}.a'
++		SHARED_LIB_SUFFIX='${TCL_TRIM_DOTS}.so.1'
++		TCL_LIB_VERSIONS_OK=nodots
+ 		if test "${TCL_THREADS}" = "1"
+ then :
+ 

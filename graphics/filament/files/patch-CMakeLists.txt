@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2024-06-03 18:10:41 UTC
++++ CMakeLists.txt
+@@ -87,7 +87,7 @@ find_program(CCACHE_PROGRAM ccache)
+ # Support for ccache
+ # ==================================================================================================
+ find_program(CCACHE_PROGRAM ccache)
+-if (CCACHE_PROGRAM)
++if (USE_CCACHE AND CCACHE_PROGRAM)
+     if (WIN32)
+         set(CMAKE_C_COMPILER_LAUNCHER   "${CCACHE_PROGRAM}")
+         set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
